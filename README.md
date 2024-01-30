@@ -59,7 +59,15 @@ The ClearEstate Team
 
 -   Currently this application is running and can be accessed via http://34.133.97.202:8000/ 
 -   To rerun this application clone the repository and go inside the repository 
--   Run the following command:
+-   Run the following command to spin up the docker container with terraform setup:
+```bash
+sudo bash scripts/gcp_deployment.sh 
+``` 
+-   Exec into the docker container 
+```bash
+docker exec -it terraform bash
+```
+-   Run the following command from inside the container which has terraform setup:
 ```bash
 sudo terraform init &&  sudo terraform destroy -auto-approve && sudo terraform apply -target google_compute_firewall.dev-dev   -auto-approve && sudo terraform apply -target google_compute_instance.dev   -auto-approve
 ```
