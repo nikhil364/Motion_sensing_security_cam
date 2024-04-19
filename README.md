@@ -1,4 +1,4 @@
-### Description
+## Description
 
 This is a security camera which can be installed on any raspberry Pi which has a RGB camera attached to it
 It is a motion sensing camera built using python, it captures photo when detects any motion ( Well tuned and can be used in farely dark places, like as a garage, parking lot or in front of the house camera)
@@ -11,7 +11,7 @@ It is a motion sensing camera built using python, it captures photo when detects
 ### Raspberry Pi and storage (Database for photos)
 ![Camera + Raspberry Pi module setup](camera_pi2.jpg)
 
-### Requirements 
+## Requirements 
 
 Hardware Requirements 
 - Raspberry Pi 
@@ -25,10 +25,10 @@ Software Requirenebts insode the Raspberry Pi
 - Connection to wifi or internet through a LAN cable
 - Screen ( OPTIONAL )  
 
-### Setup Instructions on how to setup and test the camera 
+## Setup Instructions on how to setup and test the camera 
 
 
-### How to Run 
+## How to Run 
 
 -   Currently this application is running and can be accessed via http://34.133.97.202:8000/ 
 -   To rerun this application clone the repository and go inside the repository 
