@@ -1,15 +1,29 @@
-### Objective
+### Description
 
-Your assignment is to build a terraform configuration that sets up hosting
-for the provided index.html file.
+This is a security camera which can be installed on any raspberry Pi which has a RGB camera attached to it
+It is a motion sensing camera built using python, it captures photo when detects any motion ( Well tuned and can be used in farely dark places, like as a garage, parking lot or in front of the house camera)
 
-### Brief
+## Photo
 
-The crew on the Millennium Falcon is bored. To bolster morale, one of your team members has developed a simple game in the form of a single-page application. You have offered to help her with the setup of the infrastructure side of things.
+![Camera + Raspberry Pi module setup](camera_pi1.jpg)
 
-Your colleague believes that this app will be immensely popular, but has asked that
-before it is publically available that it can only be accessed by her in order
-to ensure that it meets the required standards.
+### Requirements 
+
+Hardware Requirements 
+- Raspberry Pi 
+- RGB Camera 
+- SSD or any storage device attached to it
+
+Software Requirenebts insode the Raspberry Pi 
+- Docker 
+- Docker Compose
+- Ubuntu20.04 
+- Connection to wifi or internet through a LAN cable
+- Screen ( OPTIONAL )  
+
+### Setup Instructions 
+
+
 
 ### Tasks
 
