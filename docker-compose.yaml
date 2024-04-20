@@ -2,6 +2,7 @@ services:
     
     postgres: 
       container_name: postgres
+      platform: linux/amd64  
       image: postgres:alpine
       restart: always
       networks:
@@ -16,6 +17,7 @@ services:
 ###############################################################################################################
     pgadmin:
       container_name: pgadmin
+      platform: linux/amd64 
       networks:
         - postgres
       image: dpage/pgadmin4

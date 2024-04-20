@@ -9,9 +9,10 @@ WORKDIR /app
 
 # Update package lists
 RUN apt-get update
+RUN pip install --upgrade pip  
 
 # Install the required Python packages
-RUN pip install --no-cache-dir psycopg2 opencv-python-headless
+RUN pip3 install --no-cache-dir psycopg2 opencv-python-headless
 
 # Install additional packages
 RUN apt-get install -y \
