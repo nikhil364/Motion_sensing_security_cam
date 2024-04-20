@@ -1,26 +1,22 @@
-# Use Ubuntu as the base image
-FROM ubuntu:20.04
+# Use a Python base image with version 3.8
+FROM python:3.8
 
-# Update package lists and install Python 3.8 and pip
-RUN apt-get update && \
-    apt-get install -y python3.8 python3.8-dev python3-pip
+# Set the timezone non-interactively
+ENV TZ=UTC
 
-# Install psycopg2 dependencies
-RUN apt-get install -y libpq-dev
-
-# Install OpenCV2 dependencies
-RUN apt-get install -y libopencv-dev python3-opencv
-
-# Set Python 3.8 as the default Python version
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-
-# Install required Python packages
-RUN pip3 install psycopg2 opencv-python-headless uuid
-
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
+# Update package lists
+RUN apt-get update
+
+# Install the required Python packages
+RUN pip install --no-cache-dir psycopg2 opencv-python-headless
+
+# Install additional packages
+RUN apt-get install -y \
+    libmagic-dev \
+    && apt-get clean
+
 # Copy the application files into the container
-COPY . /app
-
-
+COPY . .
