@@ -29,9 +29,7 @@ services:
          - "5050:80"
 
     security_camera:
-      build: 
-        context: .
-        dockerfile: Dockerfile
+      image: ghcr.io/nikhil364/motion_camera:0.0.1
       container_name: security_camera
       restart: always
       networks:
@@ -39,8 +37,11 @@ services:
       devices:
         - /dev/video0:/dev/video0     
       volumes:
-        - ./photos:/app/photos
-        - ./extracted_photos_for_viewing:/app/extracted_photos_for_viewing
+          - .:/app   # Mount the current directory to /app in the container
+          - ./photos:/app/photos
+          - ./extracted_photos_for_viewing:/app/extracted_photos_for_viewing
+          - /app/photos
+          - /app/extracted_photos_for_viewing
       command: ["tail", "-f", "/dev/null"] # Command to keep the container running forever
         
     

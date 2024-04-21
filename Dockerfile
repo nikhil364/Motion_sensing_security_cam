@@ -19,5 +19,4 @@ RUN apt-get install -y \
     libmagic-dev \
     && apt-get clean
 
-# Copy the application files into the container
-COPY . .
+
