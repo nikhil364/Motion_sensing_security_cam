@@ -28,7 +28,7 @@ def create_connection():
     conn = psycopg2.connect(dbname='photos',
                             user='root',
                             password='root',
-                            host='localhost',
+                            host='postgres',
                             port='5432')
     # Get the cursor object from the connection object
     print(conn)

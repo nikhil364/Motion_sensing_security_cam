@@ -26,7 +26,7 @@ def create_connection():
     conn = psycopg2.connect(dbname='photos',
                             user='root',
                             password='root',
-                            host='localhost',
+                            host='postgres',
                             port='5432')
     # Get the cursor object from the connection object
     print(conn)
@@ -84,7 +84,7 @@ def write_blob(photoID, file_path, name):
 
 create_connection()
 
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture('/dev/video0')
 while cam.isOpened():
     ret, frame1 = cam.read()
     ret, frame2 = cam.read()
