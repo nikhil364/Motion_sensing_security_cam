@@ -25,6 +25,9 @@ Software Requirenebts insode the Raspberry Pi
 - Connection to wifi or internet through a LAN cable
 - Screen ( OPTIONAL )  
 
+## Download Docker image for camera 
+- package_download_token=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 
+
 ## Setup Instructions on how to setup and test the camera 
 
 
