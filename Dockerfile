@@ -1,22 +1,23 @@
-# Use a Python base image with version 3.8
-FROM python:3.8
+# Use the official Python image as a base
+FROM debian:stable-slim
 
-# Set the timezone non-interactively
-ENV TZ=UTC
+# Update package index and install Python
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    python3-opencv \
+    python3-psycopg2 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libfontconfig1 \
+    libuuid1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory inside the container
+# Install Python dependencies
+COPY requirements.txt /app/requirements.txt
 WORKDIR /app
-
-# Update package lists
-RUN apt-get update
-RUN pip install --upgrade pip  
-
-# Install the required Python packages
-RUN pip3 install --no-cache-dir psycopg2 opencv-python-headless
-
-# Install additional packages
-RUN apt-get install -y \
-    libmagic-dev \
-    && apt-get clean
 
 
