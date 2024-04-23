@@ -8,12 +8,7 @@ WORKDIR /go/src/app
 COPY go.mod go.sum ./
 RUN go mod verify
 # Download Go dependencies
-# RUN go mod download
-RUN go get github.com/lib/pq
-RUN go get github.com/twinj/uuid
-RUN go get gocv.io/x/gocv
-RUN go get github.com/twinj/uuid
-
+RUN go mod download
 
 # Copy the source code into the container
 COPY . .
