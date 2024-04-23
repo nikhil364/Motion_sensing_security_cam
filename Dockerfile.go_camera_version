@@ -5,10 +5,15 @@ FROM golang:latest AS builder
 WORKDIR /go/src/app
 
 # Copy the Go module files
-COPY go.mod go.sum ./
+# COPY go.mod go.sum ./
 
 # Download Go dependencies
-RUN go mod download
+# RUN go mod download
+RUN go get github.com/lib/pq
+RUN go get github.com/twinj/uuid
+RUN go get gocv.io/x/gocv
+RUN go get github.com/twinj/uuid
+
 
 # Copy the source code into the container
 COPY . .
