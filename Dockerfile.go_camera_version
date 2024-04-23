@@ -1,0 +1,38 @@
+# Use a Golang base image
+FROM golang:latest AS builder
+
+# Set the working directory inside the container
+WORKDIR /go/src/app
+
+# Copy the Go module files
+COPY go.mod go.sum ./
+
+# Download Go dependencies
+RUN go mod download
+
+# Copy the source code into the container
+COPY . .
+
+# Build the Go application
+RUN go build -o app .
+
+# Create a new lightweight container
+FROM debian:buster-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the binary from the builder stage to the new container
+COPY --from=builder /go/src/app/app .
+
+# Copy the photos directory into the container
+COPY photos ./photos
+
+# Set environment variables
+ENV DATABASE_URL="user=root dbname=photos password=root host=postgres port=5432 sslmode=disable"
+
+# Expose the port the application runs on
+EXPOSE 8080
+
+# Command to run the application
+CMD ["./app"]
